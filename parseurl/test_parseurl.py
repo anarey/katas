@@ -12,7 +12,10 @@ def get_protocol(url):
     return protocol
 
 def get_site(site):
-    return "www.site.com"
+    if site.endswith("www.site.com"):
+        return "www.site.com"
+    else:
+        return ""
 
 class test_parse_protocol(unittest.TestCase):
     def test_protocol_http(self):
