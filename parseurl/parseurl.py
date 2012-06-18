@@ -26,4 +26,7 @@ def get_site(url):
     return site
 
 def get_path(url):
-    return "index.html"
+    if url.endswith("index.html"):
+        return "index.html"
+    else:
+        return ""
