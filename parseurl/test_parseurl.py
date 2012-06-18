@@ -1,7 +1,12 @@
 #### 
 import unittest 
 
+class NotProtocolFound(Exception):
+    pass
+
 def get_protocol(url):
+    if url.find("://") < 0:
+        raise NotProtocolFound
     url_splitted = url.split(":")
     protocol = url_splitted[0]
     return protocol
@@ -24,5 +29,4 @@ class test_parseurl(unittest.TestCase):
         self.assertEqual("https", protocol)
 
     def test_not_protocol(self):
-        protocol = get_protocol("www.site.com")
-        self.assertRaises(NotProtocolFound, get_protocol("www.site.com"))
+        self.assertRaises(NotProtocolFound, get_protocol, "www.site.com")
