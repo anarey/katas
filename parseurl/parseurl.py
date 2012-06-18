@@ -15,11 +15,13 @@ def get_site(url):
     url_splitted = url.split("://")
     if len(url_splitted) == 2:
         site_splitted = url_splitted[1]
+        # This check is because if the url
+        # has not site (http://) then the url_splitted
+        # values are ["http", ""]
         if site_splitted == "":
             raise NotSiteFound
-        site = site_splitted.split("/")[0]
     else:
         site_splitted = url_splitted[0]
-        site = site_splitted.split("/")[0]
+    site = site_splitted.split("/")[0]
     return site
 
