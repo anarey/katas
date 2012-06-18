@@ -11,7 +11,7 @@ def get_protocol(url):
     protocol = url_splitted[0]
     return protocol
 
-class test_parseurl(unittest.TestCase):
+class test_parse_protocol(unittest.TestCase):
     def test_protocol_http(self):
         protocol = get_protocol("http://www.site.com")
         self.assertEqual("http", protocol)
@@ -30,3 +30,4 @@ class test_parseurl(unittest.TestCase):
 
     def test_not_protocol(self):
         self.assertRaises(NotProtocolFound, get_protocol, "www.site.com")
+
