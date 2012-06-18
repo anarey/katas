@@ -39,3 +39,6 @@ class test_parse_site(unittest.TestCase):
         site = get_site("http://www.site.com")
         self.assertEqual(site, "www.site.com")
 
+    def test_not_site(self):
+        site = get_site("http://www.site2.com")
+        self.assertNotEqual(site, "www.site.com")
