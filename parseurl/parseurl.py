@@ -10,6 +10,10 @@ def get_protocol(url):
 
 def get_site(url):
     url_splitted = url.split("://")
-    site = url_splitted[1]
+    if len(url_splitted) == 2:
+        site_splitted = url_splitted[1]
+        site = site_splitted.split("/")[0]
+    else:
+        site = url_splitted[0]
     return site
 
