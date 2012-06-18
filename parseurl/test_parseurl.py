@@ -50,3 +50,6 @@ class test_parse_site(unittest.TestCase):
     def test_long_url_not_protocol(self):
         site = get_site("www.anarey.info/holamundo/dkef/ed")
         self.assertEqual(site, "www.anarey.info")
+
+    def test_not_site_found(self):
+        self.assertRaises(NotSiteFound, get_site, "http://")
