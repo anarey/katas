@@ -23,3 +23,6 @@ class test_parseurl(unittest.TestCase):
         protocol = get_protocol("https://www.site.com")
         self.assertEqual("https", protocol)
 
+    def test_not_protocol(self):
+        protocol = get_protocol("www.site.com")
+        self.assertRaises(NotProtocolFound, get_protocol("www.site.com"))
