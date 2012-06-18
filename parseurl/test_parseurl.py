@@ -1,5 +1,5 @@
 import unittest 
-from parseurl import get_protocol, get_site
+from parseurl import get_protocol, get_site, get_path
 from parseurl import NotProtocolFound, NotSiteFound
 
 class test_parse_protocol(unittest.TestCase):

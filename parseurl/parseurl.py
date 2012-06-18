@@ -25,3 +25,5 @@ def get_site(url):
     site = site_splitted.split("/")[0]
     return site
 
+def get_path(url):
+    return "index.html"
