@@ -2,7 +2,9 @@
 import unittest 
 
 def get_protocol(url):
-    return "http"
+    if url.startswith("http"):
+        return "http"
+    return ""
 
 class test_parseurl(unittest.TestCase):
     def test_protocol_http(self):
