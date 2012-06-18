@@ -13,5 +13,7 @@ def get_site(site):
         return "www.site.com"
     elif site.endswith("www.google.com"):
         return "www.google.com"
+    elif site.endswith("www.twitter.com"):
+        return "www.twitter.com"
     else:
         return ""
