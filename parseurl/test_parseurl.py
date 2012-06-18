@@ -66,3 +66,7 @@ class test_parse_path(unittest.TestCase):
     def test_parse_about(self):
         path = get_path("http://www.anarey.info/acerca-de")
         self.assertEqual(path, "acerca-de")
+
+    def test_parse_more_url(self):
+        path = get_path("http://www.anarey.info/un/paseo/por")
+        self.assertEqual(path, "un/paseo/por")
