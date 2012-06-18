@@ -26,7 +26,6 @@ def get_site(url):
     return site
 
 def get_path(url):
-    if url.endswith("index.html"):
-        return "index.html"
-    else:
-        return ""
+    url_splitted = url.split("/")
+    path = url_splitted[len(url_splitted)-1]
+    return path
