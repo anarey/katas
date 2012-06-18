@@ -2,7 +2,9 @@
 import unittest 
 
 def get_protocol(url):
-    if url.startswith("http"):
+    if url.startswith("https"):
+        return "https"
+    elif url.startswith("http"):
         return "http"
     elif url.startswith("ftp"):
         return "ftp"
