@@ -2,7 +2,9 @@
 import unittest 
 
 def get_protocol(url):
-    return url.split(":")[0]
+    url_splitted = url.split(":")
+    protocol = url_splitted[0]
+    return protocol
 
 class test_parseurl(unittest.TestCase):
     def test_protocol_http(self):
