@@ -1,6 +1,9 @@
 class NotProtocolFound(Exception):
     pass
 
+class NotSiteFound(Exception):
+    pass
+
 def get_protocol(url):
     if url.find("://") < 0:
         raise NotProtocolFound
@@ -12,6 +15,8 @@ def get_site(url):
     url_splitted = url.split("://")
     if len(url_splitted) == 2:
         site_splitted = url_splitted[1]
+        if site_splitted == "":
+            raise NotSiteFound
         site = site_splitted.split("/")[0]
     else:
         site_splitted = url_splitted[0]
