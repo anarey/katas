@@ -14,6 +14,7 @@ def get_site(url):
         site_splitted = url_splitted[1]
         site = site_splitted.split("/")[0]
     else:
-        site = url_splitted[0]
+        site_splitted = url_splitted[0]
+        site = site_splitted.split("/")[0]
     return site
 
