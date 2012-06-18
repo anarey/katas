@@ -20,3 +20,8 @@ class test_parseurl(unittest.TestCase):
     def test_protocol_ftp(self):
         protocol = get_protocol("ftp://www.site.com")
         self.assertEqual("ftp", protocol)
+
+    def test_protocol_https(self):
+        protocol = get_protocol("https://www.site.com")
+        self.assertEqual("https", protocol)
+
