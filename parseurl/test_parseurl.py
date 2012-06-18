@@ -53,3 +53,8 @@ class test_parse_site(unittest.TestCase):
 
     def test_not_site_found(self):
         self.assertRaises(NotSiteFound, get_site, "http://")
+
+class test_parse_path(unittest.TestCase):
+    def test_parse(self):
+        path = get_path("http://www.anarey.info/index.html")
+        self.assertEqual(path, "index.html")
