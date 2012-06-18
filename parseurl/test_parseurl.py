@@ -4,6 +4,8 @@ import unittest
 def get_protocol(url):
     if url.startswith("http"):
         return "http"
+    elif url.startswith("ftp"):
+        return "ftp"
     return ""
 
 class test_parseurl(unittest.TestCase):
