@@ -11,6 +11,9 @@ def get_protocol(url):
     protocol = url_splitted[0]
     return protocol
 
+def get_site(site):
+    return "www.site.com"
+
 class test_parse_protocol(unittest.TestCase):
     def test_protocol_http(self):
         protocol = get_protocol("http://www.site.com")
