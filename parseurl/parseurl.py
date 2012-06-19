@@ -32,3 +32,8 @@ def get_path(url):
     path = ("/").join(path_splitted[1:])
     return path
 
+def parse_url(url):
+    protocol = "http"
+    site = "www.anarey.info"
+    path = "index.html"
+    return [protocol, site, path]

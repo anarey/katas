@@ -1,5 +1,5 @@
 import unittest 
-from parseurl import get_protocol, get_site, get_path
+from parseurl import get_protocol, get_site, get_path, parse_url
 from parseurl import NotProtocolFound, NotSiteFound
 
 class test_parse_protocol(unittest.TestCase):
@@ -78,7 +78,7 @@ class test_parse_path(unittest.TestCase):
 class test_parse_url(unittest.TestCase):
     def test_return_value(self):
         protocol, site, path = parse_url("http://www.anarey.info/index.html")
-        self.assetEqual(protocol, "http")
-        self.asserEqual(site, "www.anarey.info")
-        self.asserEqual(path, "index.html")
+        self.assertEqual(protocol, "http")
+        self.assertEqual(site, "www.anarey.info")
+        self.assertEqual(path, "index.html")
 
