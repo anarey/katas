@@ -55,9 +55,8 @@ Aquí tienes más info sobre métodos 'assert' que puedes usar:
 * http://docs.python.org/library/unittest.html#unittest.TestCase
 
 
-Author:
--------
-* [Ana Rey](https://github.com/anarey) 
+Realizado por:
+--------------
 
-Chef:
+* [Ana Rey](https://github.com/anarey) 
 * [Juanje Ojeda](https://github.com/juanje) 
