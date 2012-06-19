@@ -26,6 +26,7 @@ def get_site(url):
     return site
 
 def get_path(url):
-    url_splitted = url.split("/")
-    path = url_splitted[len(url_splitted)-1]
+    url_splitted = url.split("://")
+    path_splitted = url_splitted[1].split("/")
+    path = ("/").join(path_splitted[1:])
     return path
