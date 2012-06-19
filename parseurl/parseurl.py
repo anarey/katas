@@ -27,12 +27,8 @@ def get_site(url):
 
 def get_path(url):
     url_splitted = url.split("://")
-    if len(url_splitted) == 2:
-        path_splitted = url_splitted[1].split("/")
-        path = ("/").join(path_splitted[1:])
-    elif len(url_splitted) == 1:
-        path_splitted = url_splitted[0].split("/")
-        path = ("/").join(path_splitted[1:])
-    else:
-        path = ""
+    len_url_splitted = len(url_splitted)
+    path_splitted = url_splitted[len_url_splitted-1].split("/")
+    path = ("/").join(path_splitted[1:])
     return path
+
