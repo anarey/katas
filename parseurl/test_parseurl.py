@@ -55,22 +55,22 @@ class test_parse_site(unittest.TestCase):
         self.assertRaises(NotSiteFound, get_site, "http://")
 
 class test_parse_path(unittest.TestCase):
-    def test_parse(self):
+    def test_path(self):
         path = get_path("http://www.anarey.info/index.html")
         self.assertEqual(path, "index.html")
 
-    def test_parse_notequal(self):
+    def test_path_notequal(self):
         path = get_path("http://www.anarey.info/index2.html")
         self.assertNotEqual(path, "index.html")
 
-    def test_parse_about(self):
+    def test_path_about(self):
         path = get_path("http://www.anarey.info/acerca-de")
         self.assertEqual(path, "acerca-de")
 
-    def test_parse_more_url(self):
+    def test_long_path(self):
         path = get_path("http://www.anarey.info/un/paseo/por")
         self.assertEqual(path, "un/paseo/por")
 
-    def test_parse_url_not_protocol(self):
+    def test_path_url_not_protocol(self):
         path = get_path("www.anarey.info/un/paseo.html")
         self.assertEqual(path, "un/paseo.html")
