@@ -74,3 +74,11 @@ class test_parse_path(unittest.TestCase):
     def test_path_url_not_protocol(self):
         path = get_path("www.anarey.info/un/paseo.html")
         self.assertEqual(path, "un/paseo.html")
+
+class test_parse_url(unittest.TestCase):
+    def test_return_value(self):
+        protocol, site, path = parse_url("http://www.anarey.info/index.html")
+        self.assetEqual(protocol, "http")
+        self.asserEqual(site, "www.anarey.info")
+        self.asserEqual(path, "index.html")
+
