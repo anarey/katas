@@ -113,6 +113,12 @@ class test_parse_url(unittest.TestCase):
         self.assertEqual(site, "")
         self.assertEqual(path, "")
 
+    def test_parse_not_url(self):
+        protocol, site, path = parse_url("ana%243f")
+        self.assertEqual(protocol, "")
+        self.assertEqual(site, "")
+        self.assertEqual(path, "")
+
 
 ### OK TODO negative case test_return_value
 ### TODO casos que falte cada una de las partes
