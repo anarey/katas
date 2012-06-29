@@ -34,7 +34,10 @@ def get_path(url):
 
 def parse_url(url):
     
-    protocol = get_protocol(url)
+    try: 
+        protocol = get_protocol(url)
+    except (NotProtocolFound):
+        protocol = ""
     site = get_site(url)
     path = get_path(url)
 
