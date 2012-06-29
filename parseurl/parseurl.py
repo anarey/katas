@@ -44,6 +44,9 @@ def parse_url(url):
         site = get_site(url)
     except (NotSiteFound):
         site = ""
-    path = get_path(url)
+    if site == "":
+        path = ""
+    else:
+        path = get_path(url)
 
     return [protocol, site, path]
