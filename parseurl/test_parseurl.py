@@ -100,6 +100,19 @@ class test_parse_url(unittest.TestCase):
         self.assertEqual(site, "www.twitter.com")
         self.assertEqual(path, "anarb/index.html")
 
+### Prueba que cumple, no falla inicialmente
+#    def test_parse_url_not_path(self):
+#        protocol, site, path = parse_url("http://www.twitter.com")
+#        self.assertEqual(protocol, "http")
+#        self.assertEqual(site, "www.twitter.com")
+#        self.assertEqual(path, "")
+
+    def test_parse_url_not_site(self):
+        protocol, site, path = parse_url("http://")
+        self.assertEqual(protocol, "http")
+        self.assertEqual(site, "")
+        self.assertEqual(path, "")
+
 
 ### OK TODO negative case test_return_value
 ### TODO casos que falte cada una de las partes
