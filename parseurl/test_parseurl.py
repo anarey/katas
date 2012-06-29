@@ -124,9 +124,3 @@ class test_parse_url(unittest.TestCase):
         self.assertEqual(site, "")
         self.assertEqual(path, "")
 
-
-### OK TODO negative case test_return_value
-### TODO casos que falte cada una de las partes
-### TODO cuidado con las excepciones. Dejar en blanco la falta de algun parametro
-###         o evaluarlo. 
-### TODO Casos bordes_ que no existe el parametro consultado, evaluar si procede.
