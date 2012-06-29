@@ -88,7 +88,13 @@ class test_parse_url(unittest.TestCase):
         self.assertNotEqual(site, "www.anarey.info")
         self.assertNotEqual(path, "photo/anarey")
 
-### TODO negative case test_return_value
+    def test_parse_url_twitter(self):
+        protocol, site, path = parse_url("ftp://www.twitter.com/anarb/index.html")
+        self.assertEqual(protocol, "ftp")
+        self.assertEqual(site, "www.twitter.com")
+        self.assertEqual(path, "anarb/index.html")
+
+### OK TODO negative case test_return_value
 ### TODO casos que falte cada una de las partes
 ### TODO cuidado con las excepciones. Dejar en blanco la falta de algun parametro
 ###         o evaluarlo. 
