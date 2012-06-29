@@ -23,6 +23,8 @@ def get_site(url):
     else:
         site_splitted = url_splitted[0]
     site = site_splitted.split("/")[0]
+    if site.find(".") < 0: 
+        site = ""
     return site
 
 def get_path(url):
