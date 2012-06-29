@@ -118,6 +118,11 @@ class test_parse_url(unittest.TestCase):
         self.assertEqual(protocol, "")
         self.assertEqual(site, "")
         self.assertEqual(path, "")
+    def test_parse_not_url_2(self):
+        protocol, site, path = parse_url("ssefd/index.html")
+        self.assertEqual(protocol, "")
+        self.assertEqual(site, "")
+        self.assertEqual(path, "")
 
 
 ### OK TODO negative case test_return_value
