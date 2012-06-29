@@ -54,6 +54,9 @@ Documentación de apoyo:
 Aquí tienes más info sobre métodos 'assert' que puedes usar:
 * http://docs.python.org/library/unittest.html#unittest.TestCase
 
+Como ejecutar un test en Python:
+--------------------------------
+`$python -m unittest testNombre' [El nombre del archivo sin extensión]
 
 Realizado por:
 --------------
