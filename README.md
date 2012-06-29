@@ -56,7 +56,7 @@ Aquí tienes más info sobre métodos 'assert' que puedes usar:
 
 Como ejecutar un test en Python:
 --------------------------------
-`$python -m unittest testNombre' [El nombre del archivo sin extensión]
+`$python -m unittest testNombre' [El nombre del archivo sin extensión]`
 
 Realizado por:
 --------------
