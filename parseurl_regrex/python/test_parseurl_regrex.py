@@ -45,10 +45,10 @@ class test_parse_site(unittest.TestCase):
         site = get_site("www.google.com")
         self.assertEqual(site, "www.google.com")
 
-#    def test_long_url(self):
-#        site = get_site("http://www.anarey.info/aaaa")
-#        self.assertEqual(site, "www.anarey.info")
-#
+    def test_long_url(self):
+        site = get_site("http://www.anarey.info/aaaa")
+        self.assertEqual(site, "www.anarey.info")
+
 #    def test_long_url_not_protocol(self):
 #        site = get_site("www.anarey.info/holamundo/dkef/ed")
 #        self.assertEqual(site, "www.anarey.info")
