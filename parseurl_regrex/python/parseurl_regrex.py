@@ -12,4 +12,7 @@ def get_protocol(url):
         raise NotProtocolFound
 
 def get_site(url):
-    return "www.site.com"
+    if re.search("www\.site\.com", url):
+        return "www.site.com"
+    else:
+        return "www.site2.com"
