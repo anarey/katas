@@ -14,5 +14,7 @@ def get_protocol(url):
 def get_site(url):
     if re.search("www\.site\.com", url):
         return "www.site.com"
-    else:
+    elif re.search("www\.site2\.com", url):
         return "www.site2.com"
+    else:
+        return "www.google.com"
