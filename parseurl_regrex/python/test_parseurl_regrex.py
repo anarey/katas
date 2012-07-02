@@ -12,10 +12,10 @@ class test_parse_regrex_protocol(unittest.TestCase):
         protocol = get_protocol("ftp://www.site.com")
         self.assertNotEqual("http", protocol)
 
-#    def test_protocol_ftp(self):
-#        protocol = get_protocol("ftp://www.site.com")
-#        self.assertEqual("ftp", protocol)
-#
+    def test_protocolsmb(self):
+        protocol = get_protocol("smb://www.site.com")
+        self.assertEqual("smb", protocol)
+
 #    def test_protocol_https(self):
 #        protocol = get_protocol("https://www.site.com")
 #        self.assertEqual("https", protocol)
