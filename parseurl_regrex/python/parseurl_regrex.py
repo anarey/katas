@@ -1,7 +1,7 @@
 import re
 
 def get_protocol(url):
-    pattern = re.compile("http")
+    pattern = re.compile("https*")
     post_pattern = pattern.search(url)
     if post_pattern :
         return post_pattern.group()
