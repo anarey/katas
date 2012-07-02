@@ -10,3 +10,6 @@ def get_protocol(url):
         return eo[0]
     else:
         raise NotProtocolFound
+
+def get_site(url):
+    return "www.site.com"
