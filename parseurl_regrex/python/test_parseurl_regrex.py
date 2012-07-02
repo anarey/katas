@@ -24,10 +24,10 @@ class test_parse_regrex_protocol(unittest.TestCase):
     def test_not_protocol(self):
         self.assertRaises(NotProtocolFound, get_protocol, "www.site.com")
 
-class test_parse_site(unittest.TestCase):
-    def test_site(self):
-        site = get_site("http://www.site.com")
-        self.assertEqual(site, "www.site.com")
+#class test_parse_site(unittest.TestCase):
+#    def test_site(self):
+#        site = get_site("http://www.site.com")
+#        self.assertEqual(site, "www.site.com")
 
 #    def test_not_site(self):
 #        site = get_site("http://www.site2.com")
