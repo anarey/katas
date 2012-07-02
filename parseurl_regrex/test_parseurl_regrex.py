@@ -1,12 +1,13 @@
-# import unittest 
+import unittest 
 #from parseurl import get_protocol, get_site, get_path, parse_url
+from parseurl_regrex import get_protocol
 #from parseurl import NotProtocolFound, NotSiteFound
-#
-#class test_parse_protocol(unittest.TestCase):
-#    def test_protocol_http(self):
-#        protocol = get_protocol("http://www.site.com")
-#        self.assertEqual("http", protocol)
-#
+
+class test_parse_regrex_protocol(unittest.TestCase):
+    def test_protocol_http(self):
+        protocol = get_protocol("http://www.site.com")
+        self.assertEqual("http", protocol)
+
 #    def test_protocol_not_http(self):
 #        protocol = get_protocol("ftp://www.site.com")
 #        self.assertNotEqual("http", protocol)
