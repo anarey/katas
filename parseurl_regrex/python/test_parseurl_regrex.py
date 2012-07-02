@@ -2,6 +2,7 @@ import unittest
 #from parseurl import get_protocol, get_site, get_path, parse_url
 from parseurl_regrex import get_protocol
 #from parseurl import NotProtocolFound, NotSiteFound
+from parseurl_regrex import NotProtocolFound
 
 class test_parse_regrex_protocol(unittest.TestCase):
     def test_protocol_http(self):
