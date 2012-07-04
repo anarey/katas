@@ -29,5 +29,9 @@ def get_path(url):
     if re.search("index.html", url):
         return "index.html"
     else:
-        return "acerca-de"
+        if re.search("index2.html", url):
+            return "index2.html"
+        else:
+            return "acerca-de"
+
 
