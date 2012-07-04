@@ -31,7 +31,9 @@ def get_path(url):
     else:
         if re.search("index2.html", url):
             return "index2.html"
-        else:
+        elif re.search("acerca-de", url):
             return "acerca-de"
+        else:
+            return "un/paseo/por"
 
 
