@@ -1,6 +1,6 @@
 import unittest 
 #from parseurl import get_protocol, get_site, get_path, parse_url
-from parseurl_regrex import get_protocol, get_site, get_path
+from parseurl_regrex import get_protocol, get_site, get_path, parse_url
 #from parseurl import NotProtocolFound, NotSiteFound
 from parseurl_regrex import NotProtocolFound, NotSiteFound
 
@@ -88,12 +88,12 @@ class test_parse_url(unittest.TestCase):
         self.assertEqual(site, "www.anarey.info")
         self.assertEqual(path, "index.html")
 
-#    def test_parse_url_notequal(self):
-#        protocol, site, path = parse_url("https://www.flickr.com/photo/anarey/")
-#        self.assertNotEqual(protocol, "http")
-#        self.assertNotEqual(site, "www.anarey.info")
-#        self.assertNotEqual(path, "photo/anarey")
-#
+    def test_parse_url_notequal(self):
+        protocol, site, path = parse_url("https://www.flickr.com/photo/anarey/")
+        self.assertNotEqual(protocol, "http")
+        self.assertNotEqual(site, "www.anarey.info")
+        self.assertNotEqual(path, "photo/anarey")
+
 #    def test_parse_url_twitter(self):
 #        protocol, site, path = parse_url("ftp://www.twitter.com/anarb/index.html")
 #        self.assertEqual(protocol, "ftp")
