@@ -26,7 +26,7 @@ def get_site(url):
     return site
 
 def get_path(url):
-#    path = ""
+    path = ""
     if re.search("www\.[a-z0-9]+\.[a-z0-9]+?/", url):
         path_search = re.split("www\.[a-z0-9]+\.[a-z0-9]+?/", url)
         path = path_search[1]
