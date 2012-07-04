@@ -25,8 +25,8 @@
 
 ### Flag (Banderas)
 
-re.IGNORECASE ## no hace distinción entre mayúsculas y minúsculas.
-re.VERBOSE ## que hace que se ignoren los espacios y los comentarios en la cadena que representa la expresión regular.
+* `re.IGNORECASE` ## no hace distinción entre mayúsculas y minúsculas.
+* `re.VERBOSE` ## que hace que se ignoren los espacios y los comentarios en la cadena que representa la expresión regular.
 
 
 ## Reglas para crear los patrones:
