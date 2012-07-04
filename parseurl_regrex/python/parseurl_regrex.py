@@ -12,13 +12,10 @@ def get_protocol(url):
         raise NotProtocolFound
 
 def get_site(url):
-    if re.search("www\.site\.com", url):
-        return "www.site.com"
-    elif re.search("www\.site2\.com", url):
-        return "www.site2.com"
-    elif re.search("www\.google\.com", url):
-        return "www.google.com"
-    elif re.search("www\.twitter\.com", url):
-        return "www.twitter.com"
+    if re.search("www\..*\..*/?", url):
+        site_search = re.search("www\..*\..*/?", url)
+        site = site_search.group(0)
+        site = site.split("/")[0]
     else:
-        return "www.anarey.info"
+        site = ""
+    return site
