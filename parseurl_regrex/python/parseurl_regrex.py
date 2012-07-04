@@ -26,14 +26,10 @@ def get_site(url):
     return site
 
 def get_path(url):
-    if re.search("index.html", url):
-        return "index.html"
-    else:
-        if re.search("index2.html", url):
-            return "index2.html"
-        elif re.search("acerca-de", url):
-            return "acerca-de"
-        else:
-            return "un/paseo/por"
+#    path = ""
+    if re.search("www\.[a-z0-9]+\.[a-z0-9]+?/", url):
+        path_search = re.split("www\.[a-z0-9]+\.[a-z0-9]+?/", url)
+        path = path_search[1]
+    return path
 
 
