@@ -16,7 +16,7 @@ def get_protocol(url):
         raise NotProtocolFound
 
 def get_site(url):
-    pattern = re.compile("www\..*\..*/?")
+    pattern = re.compile("www\.[a-z0-9]+\.[a-z0-9]+/?")
     if pattern.search(url):
         site_search = pattern.search(url)
         site = site_search.group(0)
