@@ -35,7 +35,12 @@ def get_path(url):
 
 def parse_url(url):
     protocol = "http"
+    if get_protocol(url) != "http":
+        protocol = "https"
     site = "www.anarey.info"
+    if get_site(url) != "www.anarey.info":
+        site = "www.flickr.com"
     path = "index.html"
+    if get_path(url) != "index.html":
+        path = "photo/anarey"
     return protocol, site, path
-    return ("",)
