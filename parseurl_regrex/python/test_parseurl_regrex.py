@@ -94,11 +94,11 @@ class test_parse_url(unittest.TestCase):
         self.assertNotEqual(site, "www.anarey.info")
         self.assertNotEqual(path, "index.html")
 
-#    def test_parse_url_twitter(self):
-#        protocol, site, path = parse_url("ftp://www.twitter.com/anarb/index.html")
-#        self.assertEqual(protocol, "ftp")
-#        self.assertEqual(site, "www.twitter.com")
-#        self.assertEqual(path, "anarb/index.html")
+    def test_parse_url_twitter(self):
+        protocol, site, path = parse_url("ftp://www.twitter.com/anarb/index.html")
+        self.assertEqual(protocol, "ftp")
+        self.assertEqual(site, "www.twitter.com")
+        self.assertEqual(path, "anarb/index.html")
 #    
 #    def test_parse_url_not_protocol(self):
 #        protocol, site, path = parse_url("www.twitter.com/anarb/index.html")
