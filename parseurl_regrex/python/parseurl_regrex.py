@@ -3,6 +3,9 @@ import re
 class NotProtocolFound:
     pass
 
+class NotSiteFound:
+    pass
+
 def get_protocol(url):
 
     if re.search("://",url):
@@ -17,5 +20,5 @@ def get_site(url):
         site = site_search.group(0)
         site = site.split("/")[0]
     else:
-        site = ""
+        raise NotSiteFound
     return site
