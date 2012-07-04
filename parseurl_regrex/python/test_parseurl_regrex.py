@@ -1,6 +1,6 @@
 import unittest 
 #from parseurl import get_protocol, get_site, get_path, parse_url
-from parseurl_regrex import get_protocol, get_site
+from parseurl_regrex import get_protocol, get_site, get_path
 #from parseurl import NotProtocolFound, NotSiteFound
 from parseurl_regrex import NotProtocolFound, NotSiteFound
 
