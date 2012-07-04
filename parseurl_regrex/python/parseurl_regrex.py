@@ -26,4 +26,8 @@ def get_site(url):
     return site
 
 def get_path(url):
-    return "index.html"
+    if re.search("index.html", url):
+        return "index.html"
+    else:
+        return "acerca-de"
+
