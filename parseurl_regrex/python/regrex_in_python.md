@@ -7,7 +7,7 @@
 * Para «capar» carácteres en los patrónes de búsqueda se utiliza el carácter "\"
  Ej: `\.` representa a un punto
 
-## Opciones:
+## Opciones del módulo `re`:
 * `re.search(patron, cadena, flag)` # busca el patrón en toda la cadena. Si encuentra coincidencia devuelve el objeto `MatchObject`
 * `re.match()` # busca coincidencia con el patrón en la cadena, *sólo* al principio.
 * `re.compile()`  # Compilar la expresión regular. Para cuando se va a usar ese patrón más veces.
@@ -23,7 +23,7 @@
 ```
 * `re.sub`: 
 
-### Flag (Banderas)
+### Flag (Banderas):
 
 * `re.IGNORECASE` ## no hace distinción entre mayúsculas y minúsculas.
 * `re.VERBOSE` ## que hace que se ignoren los espacios y los comentarios en la cadena que representa la expresión regular.
@@ -39,7 +39,7 @@ Ejemplo: `...\.` # La cadena tiene 3 carácteres, seguidos por un punto.
 * `[jmr]ana` => igual.  ## Dentro de los [] no hay que capar los carácteres especiales.
 * `^` => # negar una expresión.
 
-### Indicar repeticiones de un carácter, de una clase [abc] o un subpatron (abc)
+### Indicar repeticiones de un carácter, de una clase [abc] o un subpatron (abc):
 
 * `+`: El caracter de la izquierda del + se puede repetir n veces (como mínimo 1)
 * `*`: Lo situado a la izquierda, se puede repetir cero o n veces.
