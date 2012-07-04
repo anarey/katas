@@ -69,10 +69,10 @@ class test_parse_path(unittest.TestCase):
         path = get_path("http://www.anarey.info/acerca-de")
         self.assertEqual(path, "acerca-de")
 
-#    def test_long_path(self):
-#        path = get_path("http://www.anarey.info/un/paseo/por")
-#        self.assertEqual(path, "un/paseo/por")
-#
+    def test_long_path(self):
+        path = get_path("http://www.anarey.info/un/paseo/por")
+        self.assertEqual(path, "un/paseo/por")
+
 #    def test_path_url_not_protocol(self):
 #        path = get_path("www.anarey.info/un/paseo.html")
 #        self.assertEqual(path, "un/paseo.html")
