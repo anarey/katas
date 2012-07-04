@@ -24,3 +24,6 @@ def get_site(url):
     else:
         raise NotSiteFound
     return site
+
+def get_path(url):
+    return "index.html"
