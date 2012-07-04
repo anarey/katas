@@ -61,10 +61,10 @@ class test_parse_path(unittest.TestCase):
         path = get_path("http://www.anarey.info/index.html")
         self.assertEqual(path, "index.html")
 
-#    def test_path_notequal(self):
-#        path = get_path("http://www.anarey.info/index2.html")
-#        self.assertNotEqual(path, "index.html")
-#
+    def test_path_notequal(self):
+        path = get_path("http://www.anarey.info/index2.html")
+        self.assertNotEqual(path, "index.html")
+
 #    def test_path_about(self):
 #        path = get_path("http://www.anarey.info/acerca-de")
 #        self.assertEqual(path, "acerca-de")
