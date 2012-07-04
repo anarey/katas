@@ -27,8 +27,9 @@ def get_site(url):
 
 def get_path(url):
     path = ""
-    if re.search("www\.[a-z0-9]+\.[a-z0-9]+?/", url):
-        path_search = re.split("www\.[a-z0-9]+\.[a-z0-9]+?/", url)
+    pattern = re.compile("www\.[a-z0-9]+\.[a-z0-9]+/")
+    if pattern.search(url):
+        path_search = pattern.split(url)
         path = path_search[1]
     return path
 
