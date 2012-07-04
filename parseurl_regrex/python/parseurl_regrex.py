@@ -34,24 +34,12 @@ def get_path(url):
     return path
 
 def parse_url(url):
-    protocol = "http"
+
     try:
-        if get_protocol(url) == "https":
-            protocol = "https"
-        elif get_protocol(url) == "ftp":
-            protocol = "ftp"
+        protocol = get_protocol(url)
     except (NotProtocolFound):
         protocol = ""
-    site = "www.anarey.info"
-    if get_site(url) == "www.flickr.com":
-        site = "www.flickr.com"
-    elif get_site(url) == "www.twitter.com":
-        site = "www.twitter.com"
-    
-    path = "index.html"
-    if get_path(url) == "photo/anarey/":
-        path = "photo/anarey/"
-    elif get_path(url) == "anarb/index.html":
-        path = "anarb/index.html"
+    site = get_site(url)
+    path = get_path(url)
 
     return protocol, site, path
