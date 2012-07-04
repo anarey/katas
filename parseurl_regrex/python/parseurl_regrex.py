@@ -39,7 +39,10 @@ def parse_url(url):
         protocol = get_protocol(url)
     except (NotProtocolFound):
         protocol = ""
-    site = get_site(url)
+    try:
+        site = get_site(url)
+    except (NotSiteFound):
+        site = ""
     path = get_path(url)
 
     return protocol, site, path
