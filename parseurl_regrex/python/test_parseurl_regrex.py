@@ -81,13 +81,13 @@ class test_parse_path(unittest.TestCase):
         path = get_path("www.anarey.info")
         self.assertEqual(path, "")
 
-#class test_parse_url(unittest.TestCase):
-#    def test_return_value(self):
-#        protocol, site, path = parse_url("http://www.anarey.info/index.html")
-#        self.assertEqual(protocol, "http")
-#        self.assertEqual(site, "www.anarey.info")
-#        self.assertEqual(path, "index.html")
-#
+class test_parse_url(unittest.TestCase):
+    def test_return_value(self):
+        protocol, site, path = parse_url("http://www.anarey.info/index.html")
+        self.assertEqual(protocol, "http")
+        self.assertEqual(site, "www.anarey.info")
+        self.assertEqual(path, "index.html")
+
 #    def test_parse_url_notequal(self):
 #        protocol, site, path = parse_url("https://www.flickr.com/photo/anarey/")
 #        self.assertNotEqual(protocol, "http")
