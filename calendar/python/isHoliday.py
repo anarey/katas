@@ -1,2 +1,2 @@
-def isHoliday_day(day):
+def is_holiday_day(day):
     return False
