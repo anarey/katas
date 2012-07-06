@@ -1,2 +1,5 @@
 def is_holiday_day(day):
-    return False
+    if day == "Monday":
+        return False
+    else:
+        return True
