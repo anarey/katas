@@ -22,3 +22,6 @@ def is_working_day(day):
         raise IncorrectDay
     
     return is_working
+
+def is_working_date(day):
+    return True
