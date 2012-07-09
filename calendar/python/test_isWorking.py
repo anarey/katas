@@ -2,7 +2,7 @@ import unittest
 
 from isWorking import is_working_day
 
-from isWorking import NotDayFound
+from isWorking import NotDayFound, IncorrectDay
 
 class testClassCalendar(unittest.TestCase):
 
@@ -26,4 +26,4 @@ class testClassCalendar(unittest.TestCase):
         self.assertRaises(NotDayFound, is_working_day, "")
 
     def test_incorrect_day(self):
-        self.assertRaises(IncorrectDay, is_working_day, "")
+        self.assertRaises(IncorrectDay, is_working_day, "wrong_day")
