@@ -2,7 +2,7 @@ import unittest
 
 from isWorking import is_working_day, is_working_date
 
-from isWorking import NotDayFound, IncorrectDay, NotDateFound
+from isWorking import NotDayFound, IncorrectDay, NotDateFound, IncorrectDate
 
 class testClassCalendar(unittest.TestCase):
 
