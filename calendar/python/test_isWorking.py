@@ -12,7 +12,12 @@ class testClassCalendar(unittest.TestCase):
         is_working = is_working_day("Sunday")
         self.assertFalse(is_working)
 
-    def test_wednesday(self):
+    def test_wednesday_working(self):
         is_working = is_working_day("Wednesday")
         self.assertTrue(is_working)
+    
+    def test_saturday_working(self):
+        is_working = is_working_day("Saturday")
+        self.assertFalse(is_working)
+
 
