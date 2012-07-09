@@ -44,8 +44,12 @@ def is_working_date(day):
             raise IncorrectDate
 
     day, month, year = day.split("/")
-    day_week = calendar.weekday(int(year), int(month), int(day))
-
+    
+    try:
+        day_week = calendar.weekday(int(year), int(month), int(day))
+    except   ValueError:
+        raise IncorrectDate
+    
     if day_week >= 0 and day_week <= 4:
         return True
     else:
