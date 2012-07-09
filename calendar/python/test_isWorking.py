@@ -39,3 +39,7 @@ class TestClassCalendarDay(unittest.TestCase):
         is_working = is_working_date("08/07/2012")
         self.assertFalse(is_working)
 
+    def test_working_day_05072012(self):
+        is_working = is_working_date("05/07/2012")
+        self.assertTrue(is_working)
+
