@@ -6,6 +6,9 @@ class NotDayFound(Exception):
 class IncorrectDay(Exception):
     pass
 
+class NotDateFound(Exception):
+    pass
+
 def is_working_day(day):
 
     is_working = ""
@@ -26,6 +29,9 @@ def is_working_day(day):
     return is_working
 
 def is_working_date(day):
+    if day == "":
+        raise NotDateFound
+    
     day, month, year = day.split("/")
     day_week = calendar.weekday(int(year), int(month), int(day))
 

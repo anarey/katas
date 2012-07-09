@@ -2,7 +2,7 @@ import unittest
 
 from isWorking import is_working_day, is_working_date
 
-from isWorking import NotDayFound, IncorrectDay
+from isWorking import NotDayFound, IncorrectDay, NotDateFound
 
 class testClassCalendar(unittest.TestCase):
 
@@ -48,8 +48,5 @@ class TestClassCalendarDay(unittest.TestCase):
         self.assertFalse(is_working)
 
     def test_working_day_noday(self):
-        is_working = is_working_date("")
-        self.assertRaises(dateNotFound, is_working_date, "")
-
-
+        self.assertRaises(NotDateFound, is_working_date, "")
 
