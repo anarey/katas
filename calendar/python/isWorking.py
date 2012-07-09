@@ -3,5 +3,7 @@ def is_working_day(day):
         return True
     elif day == "Sunday":
         return False
-    else: 
+    elif day == "Saturday": 
+        return False
+    else:
         return True
