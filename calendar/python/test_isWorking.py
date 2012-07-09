@@ -20,4 +20,6 @@ class testClassCalendar(unittest.TestCase):
         is_working = is_working_day("Saturday")
         self.assertFalse(is_working)
 
+    def test_no_day_working(self):
+        self.assertRaises(NotDayFound, is_working_day, "")
 
