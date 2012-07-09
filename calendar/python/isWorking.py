@@ -17,14 +17,14 @@ def is_working_day(day):
 
     is_working = ""
     if (day == "Sunday" 
-        or day == "Saturday"):
-            is_working =  False
+      or day == "Saturday"):
+        is_working =  False
     elif (day == "Monday" 
-        or day == "Tuesday" 
-        or day == "Wednesday" 
-        or day == "Tuesday" 
-        or day == "Friday"):
-            is_working = True
+      or day == "Tuesday" 
+      or day == "Wednesday" 
+      or day == "Tuesday" 
+      or day == "Friday"):
+        is_working = True
     elif day == "":
         raise NotDayFound
     else:
