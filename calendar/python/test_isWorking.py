@@ -2,6 +2,8 @@ import unittest
 
 from isWorking import is_working_day
 
+from isWorking import NotDayFound
+
 class testClassCalendar(unittest.TestCase):
 
     def test_monday_working(self):
