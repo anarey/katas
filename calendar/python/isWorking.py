@@ -1,4 +1,5 @@
 import calendar
+import re
 
 class NotDayFound(Exception):
     pass
@@ -33,12 +34,14 @@ def is_working_day(day):
 
 def is_working_date(day):
     
-    if day == "":
-        raise NotDateFound
+    pattern = re.compile("\d{2}/\d{2}/\d{4}")
 
-    if day.find("/") <= -1:
-        raise IncorrectDate
-    
+    if not pattern.match(day): 
+        if day == "":
+            raise NotDateFound
+        else: 
+            raise IncorrectDate
+
     day, month, year = day.split("/")
     day_week = calendar.weekday(int(year), int(month), int(day))
 
