@@ -26,5 +26,7 @@ def is_working_day(day):
 def is_working_date(day):
     if day == "09/07/2012":
         return True
-    else:
+    elif day == "08/07/2012":
         return False
+    else: 
+        return True
