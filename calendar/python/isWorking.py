@@ -15,15 +15,13 @@ class IncorrectDate(Exception):
 
 def is_working_day(day):
 
+    working_days = ["Monday", "Tuesday", "Wednesday", "Thrusday", "Friday"]
+    non_working_days = ["Saturday", "Sunday"]
     is_working = ""
-    if (day == "Sunday" 
-      or day == "Saturday"):
+    
+    if day in non_working_days:
         is_working =  False
-    elif (day == "Monday" 
-      or day == "Tuesday" 
-      or day == "Wednesday" 
-      or day == "Tuesday" 
-      or day == "Friday"):
+    elif day in working_days:
         is_working = True
     elif day == "":
         raise NotDayFound
@@ -36,7 +34,11 @@ def is_working_date(day):
     
     pattern = re.compile("\d{2}/\d{2}/\d{4}")
 
+# TODO Refactorizar con expresion regular solo introducir
+# 1-31 en dias y 1-12 en mes.
+# Este patron falla por los 05/06/2023
 #    pattern = re.compile("0?[1-31]/0?[1-12]/\d{4}")
+
     if not pattern.match(day): 
         if day == "":
             raise NotDateFound
@@ -49,7 +51,6 @@ def is_working_date(day):
         day_week = calendar.weekday(int(year), int(month), int(day))
     except   ValueError:
         raise IncorrectDate
-    
     if day_week >= 0 and day_week <= 4:
         return True
     else:
