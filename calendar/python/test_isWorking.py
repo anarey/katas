@@ -50,3 +50,5 @@ class TestClassCalendarDay(unittest.TestCase):
     def test_working_day_noday(self):
         self.assertRaises(NotDateFound, is_working_date, "")
 
+    def test_working_incorrect_date(self):
+        self.assertRaises(IncorrectDate, is_working_date, "sedrfse")
