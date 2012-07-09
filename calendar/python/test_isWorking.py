@@ -52,3 +52,6 @@ class TestClassCalendarDay(unittest.TestCase):
 
     def test_working_incorrect_date(self):
         self.assertRaises(IncorrectDate, is_working_date, "sedrfse")
+
+    def test_working_false_date(self):
+        self.assertRaises(IncorrectDate, is_working_date, "34/07/2012")
