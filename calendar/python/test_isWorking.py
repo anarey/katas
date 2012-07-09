@@ -27,3 +27,10 @@ class testClassCalendar(unittest.TestCase):
 
     def test_incorrect_day(self):
         self.assertRaises(IncorrectDay, is_working_day, "wrong_day")
+
+
+class TestClassCalendarDay(unittest.TestCase):
+    
+    def test_working_day_09072012(self):
+        is_working = is_working_date("09/07/2012")
+        self.assertTrue(is_working)
