@@ -1,3 +1,5 @@
+import calendar
+
 class NotDayFound(Exception):
     pass
 
@@ -24,11 +26,10 @@ def is_working_day(day):
     return is_working
 
 def is_working_date(day):
-    if day == "09/07/2012":
-        return True
-    elif day == "08/07/2012":
-        return False
-    elif day == "05/07/2012": 
+    day, month, year = day.split("/")
+    day_week = calendar.weekday(int(year), int(month), int(day))
+
+    if day_week >= 0 and day_week <= 4:
         return True
     else:
         return False
