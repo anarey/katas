@@ -59,6 +59,8 @@ def is_working_date(day):
 def is_working_range(day_start, day_end):
     if day_start == "01/07/2012":
         return [False, True, True, True]
-    else:
+    elif day_start == "02/07/2012":
         return [True, True, True, True]
+    else:
+        return [True, True, True, False, False]
 
