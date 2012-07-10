@@ -1,6 +1,6 @@
 import unittest
 
-from isWorking import is_working_day, is_working_date
+from isWorking import is_working_day, is_working_date, is_working_range
 
 from isWorking import NotDayFound, IncorrectDay, NotDateFound, IncorrectDate
 
@@ -61,3 +61,8 @@ class TestClassRangeDay(unittest.TestCase):
     def test_working_day_1(self):
         range_days = is_working_range("01/07/2012", "04/07/2012")
         self.assertEqual(range_days, [False, True, True, True])
+
+
+    def test_working_day_2(self):
+        range_days = is_working_range("02/07/2012", "05/07/2012")
+        self.assertNotEqual(range_days, [False, True, True, True])
