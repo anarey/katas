@@ -55,3 +55,6 @@ def is_working_date(day):
         return True
     else:
         return False
+
+def is_working_range(day_start, day_end):
+    return [False, True, True, True]
