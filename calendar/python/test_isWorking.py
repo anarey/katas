@@ -55,3 +55,9 @@ class TestClassCalendarDay(unittest.TestCase):
 
     def test_working_false_date(self):
         self.assertRaises(IncorrectDate, is_working_date, "34/07/2012")
+
+class TestClassRangeDay(unittest.TestCase):
+
+    def test_working_day_1(self):
+        range_days = is_working_range("01/07/2012", "04/07/2012")
+        self.assertEqual(range_days, [False, True, True, True])
