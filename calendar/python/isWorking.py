@@ -1,5 +1,6 @@
 import calendar
 import re
+import datetime
 
 class NotDayFound(Exception):
     pass
@@ -56,11 +57,25 @@ def is_working_date(day):
     else:
         return False
 
-def is_working_range(day_start, day_end):
-    if day_start == "01/07/2012":
-        return [False, True, True, True]
-    elif day_start == "02/07/2012":
-        return [True, True, True, True]
-    else:
-        return [True, True, True, False, False]
+def is_working_range(range_start, range_end):
 
+    day_s, month_s, year_s = range_start.split("/")
+    day_e, month_e, year_e = range_end.split("/")
+    day_start = datetime.date(int(year_s), int(month_s), int(day_s))
+    day_end = datetime.date(int(year_e), int(month_e), int(day_e))
+
+    range_working = []
+    day = day_start
+    finish_range = False
+    one_day = datetime.timedelta(days=1)
+
+    while (not finish_range):
+        day_temp = day.strftime("%d/%m/%Y")
+        is_working = is_working_date(day_temp)
+        range_working.append(is_working)
+        if day == day_end:
+            finish_range = True
+        else:
+            day = day + one_day
+        
+    return range_working
