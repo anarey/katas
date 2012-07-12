@@ -78,4 +78,5 @@ class TestClassRangeDay(unittest.TestCase):
     def test_working_bad_range2(self):
         self.assertRaises(IncorrectRange, is_working_range, "06/07/2012", "04/07/2012")
 
-    ## TODO control de fecha_inicio sea menos a fecha final
+    def test_working_bad_range3(self):
+        self.assertRaises(IncorrectRange, is_working_range, "", "04/07/2012")
