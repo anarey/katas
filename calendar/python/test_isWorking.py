@@ -69,6 +69,10 @@ class TestClassRangeDay(unittest.TestCase):
         range_days = is_working_range("04/07/2012", "08/07/2012")
         self.assertEqual(range_days, [True, True, True, False, False])
 
+    def test_working_day_0(self):
+        range_days = is_working_range("04/07/2012", "04/07/2012")
+        self.assertEqual(range_days, [])
+
     def test_working_bad_range(self):
         self.assertRaises(IncorrectRange, is_working_range, "05/07/2012", "03/07/2012")
   
