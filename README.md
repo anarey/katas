@@ -60,6 +60,11 @@ Como ejecutar un test en Python:
 
 Nota: testNombre es el nombre del archivo de test sin extensión
 
+Estado de los tests:
+--------------------
+
+[![Build Status](https://secure.travis-ci.org/anarey/katas.png?branch=master)](http://travis-ci.org/anarey/katas)
+
 Realizado por:
 --------------
 
