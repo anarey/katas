@@ -17,6 +17,8 @@ class IncorrectDate(Exception):
 
 class IncorrectRange(Exception):
     pass
+class InvalidDate(Exception):
+    pass
 
 def is_working_day(day):
 
@@ -72,9 +74,11 @@ def is_working_range(range_start, range_end):
     day_e, month_e, year_e = range_end.split("/")
     day_start = datetime.date(int(year_s), int(month_s), int(day_s))
     day_end = datetime.date(int(year_e), int(month_e), int(day_e))
-    
-    if time.mktime(day_start.timetuple()) > time.mktime(day_end.timetuple()):
-        raise IncorrectRange
+    try:
+        if time.mktime(day_start.timetuple()) > time.mktime(day_end.timetuple()):
+            raise IncorrectRange
+    except ValueError:
+        raise InvalidDate
 
     range_working = []
     day = day_start
