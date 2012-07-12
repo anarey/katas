@@ -63,6 +63,9 @@ def is_working_date(day):
 
 def is_working_range(range_start, range_end):
 
+    if range_start == "":
+        raise IncorrectRange
+
     day_s, month_s, year_s = range_start.split("/")
     day_e, month_e, year_e = range_end.split("/")
     day_start = datetime.date(int(year_s), int(month_s), int(day_s))
