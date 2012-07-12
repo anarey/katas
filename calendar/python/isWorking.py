@@ -63,10 +63,9 @@ def is_working_date(day):
 
 def is_working_range(range_start, range_end):
 
-    if range_start == "" or range_end == "":
-        raise IncorrectRange
+    pattern = re.compile("\d{2}/\d{2}/\d{4}")
 
-    if range_start == "232232":
+    if not pattern.match(range_start) or not pattern.match(range_end):
         raise IncorrectRange
 
     day_s, month_s, year_s = range_start.split("/")
