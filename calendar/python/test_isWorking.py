@@ -28,7 +28,6 @@ class testClassCalendar(unittest.TestCase):
     def test_incorrect_day(self):
         self.assertRaises(IncorrectDay, is_working_day, "wrong_day")
 
-
 class TestClassCalendarDay(unittest.TestCase):
     
     def test_working_day_09072012(self):
@@ -62,11 +61,9 @@ class TestClassRangeDay(unittest.TestCase):
         range_days = is_working_range("01/07/2012", "04/07/2012")
         self.assertEqual(range_days, [False, True, True, True])
 
-
     def test_working_day_2(self):
         range_days = is_working_range("02/07/2012", "05/07/2012")
         self.assertNotEqual(range_days, [False, True, True, True])
-
 
     def test_working_day_3(self):
         range_days = is_working_range("04/07/2012", "08/07/2012")
@@ -86,5 +83,4 @@ class TestClassRangeDay(unittest.TestCase):
 
     def test_working_bad_range5(self):
         self.assertRaises(IncorrectRange, is_working_range, "", "")
-
 
