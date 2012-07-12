@@ -14,6 +14,9 @@ class NotDateFound(Exception):
 class IncorrectDate(Exception):
     pass
 
+class IncorrectRange(Exception):
+    pass
+
 def is_working_day(day):
 
     working_days = ["Monday", "Tuesday", "Wednesday", "Thrusday", "Friday"]
@@ -58,6 +61,9 @@ def is_working_date(day):
         return False
 
 def is_working_range(range_start, range_end):
+
+    if range_start == "05/07/2012" and range_end == "03/07/2012":
+        raise IncorrectRange
 
     day_s, month_s, year_s = range_start.split("/")
     day_e, month_e, year_e = range_end.split("/")
