@@ -1,6 +1,7 @@
 import calendar
 import re
 import datetime
+import time
 
 class NotDayFound(Exception):
     pass
@@ -62,16 +63,13 @@ def is_working_date(day):
 
 def is_working_range(range_start, range_end):
 
-    if ((range_start == "05/07/2012" 
-            and range_end == "03/07/2012")
-            or (range_start == "06/07/2012"
-            and range_end ==  "04/07/2012")):
-        raise IncorrectRange
-
     day_s, month_s, year_s = range_start.split("/")
     day_e, month_e, year_e = range_end.split("/")
     day_start = datetime.date(int(year_s), int(month_s), int(day_s))
     day_end = datetime.date(int(year_e), int(month_e), int(day_e))
+    
+    if time.mktime(day_start.timetuple()) > time.mktime(day_end.timetuple()):
+        raise IncorrectRange
 
     range_working = []
     day = day_start
