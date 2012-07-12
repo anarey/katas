@@ -84,3 +84,7 @@ class TestClassRangeDay(unittest.TestCase):
     def test_working_bad_range4(self):
         self.assertRaises(IncorrectRange, is_working_range, "06/05/2011", "")
 
+    def test_working_bad_range5(self):
+        self.assertRaises(IncorrectRange, is_working_range, "", "")
+
+
