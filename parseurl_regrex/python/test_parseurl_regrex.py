@@ -59,6 +59,10 @@ class test_parse_site(unittest.TestCase):
         site = get_site("http://github.org")
         self.assertEqual(site, "github.org")
 
+    def test_site_notwww_notprotocol(self):
+        site = get_site("twitter.com")
+        self.assertEqual(site, "twitter.com")
+
 class test_parse_path(unittest.TestCase):
     def test_path(self):
         path = get_path("http://www.anarey.info/index.html")
