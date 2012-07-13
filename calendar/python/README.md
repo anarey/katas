@@ -1,3 +1,23 @@
+# Calendario.
+
+* Modulo `Calendar`. Mirar también `datatime` y `time`
+* Tener en cuenta el día en el que empieza la semana.
+* leap year = Año bisiesto.
+* Día de la semana de una fecha concreta: `calendar.weekday(2012, 7, 6)`
+Deuelve un 0-6 (Lunes-domingo)
+* Calendario del año indicado: `calendar.prcal(2012)`
+* Sumar x días a una fecha: 
+```
+    one_day = datetime.timedelta(days=1)
+    day = day + one_day
+```
+
+# Sobre assert en Unittest:
+
+* `assertFalse(expr, msg=None)` Test that expr is true (or false).
+
+* `assertIs(expr, True)`: Comprobar el tipo de datos.
+
 # Diccionarios: 
 
 * Conjunto no ordenado de pares clave: valor.
@@ -84,25 +104,5 @@ except NombreExcepcion:
         for linea in f:
             print linea
 ```
-
 Cierra el archivo tanto si hubo un error como sino. Hay más objetos con estas funciones. TODO
 
-# Calendario.
-
-* Modulo `Calendar`. Mirar también `datatime` y `time`
-* Tener en cuenta el día en el que empieza la semana.
-* leap year = Año bisiesto.
-* Día de la semana de una fecha concreta: `calendar.weekday(2012, 7, 6)`
-Deuelve un 0-6 (Lunes-domingo)
-* Calendario del año indicado: `calendar.prcal(2012)`
-* Sumar x días a una fecha: 
-```
-    one_day = datetime.timedelta(days=1)
-    day = day + one_day
-```
-
-# Sobre assert en Unittest:
-
-* `assertFalse(expr, msg=None)` Test that expr is true (or false).
-
-* `assertIs(expr, True)`: Comprobar el tipo de datos.
