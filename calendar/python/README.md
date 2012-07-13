@@ -59,13 +59,13 @@ import re
 class MyError(Exception):
     def __init__(self, value_exception):
         self.value_exception = value_exception
-
+        
     def __str__(self):
         return self.value_exception
-
+        
 class NotProtocolFoundError(MyError):
     pass
-
+    
 class NotSiteFoundError(MyError):
     pass
 ```
