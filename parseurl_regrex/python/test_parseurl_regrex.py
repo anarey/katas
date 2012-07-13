@@ -88,6 +88,10 @@ class test_parse_path(unittest.TestCase):
         path = get_path("www.anarey.info")
         self.assertEqual(path, "")
 
+    def test_path_not_www(self):
+        path = get_path("anarey.info/info/aboutme")
+        self.assertEqual(path, "info/aboutme")
+
 class test_parse_url(unittest.TestCase):
     def test_return_value(self):
         protocol, site, path = parse_url("http://www.anarey.info/index.html")
