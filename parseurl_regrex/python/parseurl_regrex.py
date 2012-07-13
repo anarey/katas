@@ -63,12 +63,12 @@ def parse_url(url):
 
     try:
         protocol = get_protocol(url)
-    except (NotProtocolFoundError):
+    except NotProtocolFoundError:
         protocol = ""
 
     try:
         site = get_site(url)
-    except (NotSiteFoundError):
+    except NotSiteFoundError:
         site = ""
 
     try:
