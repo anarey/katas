@@ -1,9 +1,16 @@
 import re
 
-class NotProtocolFound:
+class MyError(Exception):
+    def __init__(self, value_exception):
+        self.value_exception = value_exception
+
+    def __str__(self):
+        return self.value_exception
+
+class NotProtocolFoundError(MyError):
     pass
 
-class NotSiteFound:
+class NotSiteFoundError(MyError):
     pass
 
 def get_protocol(url):
@@ -13,7 +20,7 @@ def get_protocol(url):
         protocol = protocol_search[0]
         return protocol
     else:
-        raise NotProtocolFound
+        raise NotProtocolFoundError("Prococol not found")
 
 def get_site(url):
     pattern = re.compile("www\.[a-z0-9]+\.[a-z0-9]+/?")
@@ -22,7 +29,7 @@ def get_site(url):
         site = site_search.group(0)
         site = site.split("/")[0]
     else:
-        raise NotSiteFound
+        raise NotSiteFoundError("Site not found")
     return site
 
 def get_path(url):
@@ -37,11 +44,11 @@ def parse_url(url):
 
     try:
         protocol = get_protocol(url)
-    except (NotProtocolFound):
+    except (NotProtocolFoundError):
         protocol = ""
     try:
         site = get_site(url)
-    except (NotSiteFound):
+    except (NotSiteFoundError):
         site = ""
     path = get_path(url)
 
