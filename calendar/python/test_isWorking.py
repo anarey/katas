@@ -104,3 +104,5 @@ class TestClassRangeDay(unittest.TestCase):
     def test_working_Invalid_date(self):
         self.assertRaises(InvalidDate, is_working_range, "12/03/1633", "04/07/2012")
 
+    def test_working_Invalid_date(self):
+        self.assertRaises(InvalidDate, is_working_range, "34/03/1633", "04/07/2012")
