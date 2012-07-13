@@ -10,26 +10,26 @@ class myError(Exception):
     def __str__(self):
         return self.value_error
 
-class NotDayFound(myError):
+class NotDayFoundError(myError):
     pass
-class IncorrectDay(myError):
-    pass
-
-class NotDayFound(myError):
+class IncorrectDayError(myError):
     pass
 
-class IncorrectDay(myError):
+class NotDayFoundError(myError):
     pass
 
-class NotDateFound(myError):
+class IncorrectDayError(myError):
     pass
 
-class IncorrectDate(myError):
+class NotDateFoundError(myError):
     pass
 
-class IncorrectRange(myError):
+class IncorrectDateError(myError):
     pass
-class InvalidDate(myError):
+
+class IncorrectRangeError(myError):
+    pass
+class InvalidDateError(myError):
     pass
 
 def is_working_day(day):
@@ -43,9 +43,9 @@ def is_working_day(day):
     elif day in working_days:
         is_working = True
     elif day == "":
-        raise NotDayFound("'day' is emtpy")
+        raise NotDayFoundError("'day' is emtpy")
     else:
-        raise IncorrectDay("'day' is a incorrect day")
+        raise IncorrectDayError("'day' is a incorrect day")
     
     return is_working
 
@@ -55,16 +55,16 @@ def is_working_date(day):
 
     if not pattern.match(day): 
         if day == "":
-            raise NotDateFound("'date' is emtpy")
+            raise NotDateFoundError("'date' is emtpy")
         else: 
-            raise IncorrectDate("'date' is a incorrect date")
+            raise IncorrectDateError("'date' is a incorrect date")
 
     day, month, year = day.split("/")
     
     try:
         day_week = calendar.weekday(int(year), int(month), int(day))
     except   ValueError:
-        raise IncorrectDate("'date' can't accept")
+        raise IncorrectDateError("'date' can't accept")
     if day_week >= 0 and day_week <= 4:
         return True
     else:
@@ -75,7 +75,7 @@ def is_working_range(range_start, range_end):
     pattern = re.compile("\d{2}/\d{2}/\d{4}")
 
     if not pattern.match(range_start) or not pattern.match(range_end):
-        raise IncorrectRange("'range' is a incorrect range")
+        raise IncorrectRangeError("'range' is a incorrect range")
 
     day_s, month_s, year_s = range_start.split("/")
     day_e, month_e, year_e = range_end.split("/")
@@ -85,9 +85,9 @@ def is_working_range(range_start, range_end):
         day_end = datetime.date(int(year_e), int(month_e), int(day_e))
 
         if time.mktime(day_start.timetuple()) > time.mktime(day_end.timetuple()):
-            raise IncorrectRange("'range' is a incorrect range")
+            raise IncorrectRangeError("'range' is a incorrect range")
     except ValueError:
-        raise InvalidDate("'range' is a incorrect range")
+        raise InvalidDateError("'range' is a incorrect range")
     
     if range_start == range_end:
         return {}
