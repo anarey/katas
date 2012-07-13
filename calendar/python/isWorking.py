@@ -72,10 +72,11 @@ def is_working_range(range_start, range_end):
 
     day_s, month_s, year_s = range_start.split("/")
     day_e, month_e, year_e = range_end.split("/")
-    day_start = datetime.date(int(year_s), int(month_s), int(day_s))
-    day_end = datetime.date(int(year_e), int(month_e), int(day_e))
 
     try:
+        day_start = datetime.date(int(year_s), int(month_s), int(day_s))
+        day_end = datetime.date(int(year_e), int(month_e), int(day_e))
+
         if time.mktime(day_start.timetuple()) > time.mktime(day_end.timetuple()):
             raise IncorrectRange
     except ValueError:
