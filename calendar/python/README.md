@@ -7,7 +7,8 @@
 * Crear un diccionario vacio: `dicVacio = {}` 
 * Crear un diccionario con contenido: 
 
-```dias_laborables = {'lunes' : True,
+```
+dias_laborables = {'lunes' : True,
                         'martes': True,
                         'miercoles': True}
 ```
