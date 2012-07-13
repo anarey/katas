@@ -24,7 +24,7 @@ def get_protocol(url):
 
 def get_site(url):
     if re.search("://", url):
-        site_without_protocol = re.split("://",url)
+        site_without_protocol = re.split("://", url)
         site_search = site_without_protocol[1]
     else:
         site_search = url
@@ -44,10 +44,19 @@ def get_site(url):
 
 def get_path(url):
     path = ""
-    pattern = re.compile("www\.[a-z0-9]+\.[a-z0-9]+/")
-    if pattern.search(url):
-        path_search = pattern.split(url)
-        path = path_search[1]
+    try:
+        site = get_site(url)
+    except NotSiteFoundError:
+        raise NotSiteFoundError("Site not found")
+
+    pattern = re.compile("(\w\w\w\.)?[a-z0-9]+\.[a-z0-9]+")
+    if pattern.search(site):
+        if re.search(site, url):
+            path_search = re.split(site, url)
+            path = path_search[1]
+            if re.search("^/", path):
+                path = re.split("^/", path)[1]
+
     return path
 
 def parse_url(url):
@@ -56,10 +65,15 @@ def parse_url(url):
         protocol = get_protocol(url)
     except (NotProtocolFoundError):
         protocol = ""
+
     try:
         site = get_site(url)
     except (NotSiteFoundError):
         site = ""
-    path = get_path(url)
+
+    try:
+        path = get_path(url)
+    except NotSiteFoundError:
+        path = ""
 
     return protocol, site, path
