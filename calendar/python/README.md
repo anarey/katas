@@ -29,9 +29,9 @@ dias_laborables = {'lunes' : True,
         ## Código que puede provocar una excepción.
    except NombreExcepcion: ## Nombre de la/s excepciones a capturar/tratar
         ## Código a ejecutar si captura esa excepción.
-    else: 
+   else: 
         ## Bloque opcional que se ejecuta en el caso de que no se lance ninguna excepción en el bloque try. 
-    finally: 
+   finally: 
         ## Codigo opcional que se lanza siempre hay lanzado o no excepciones. 
 ```
 
@@ -42,9 +42,9 @@ dias_laborables = {'lunes' : True,
 * Ignorar una excepción que se produzca: 
 ```
 try:
-        ### Código
-   except NombreExcepcion:
-        pass
+                        ### Código
+except NombreExcepcion:
+                        pass
 ```
 
 * Excepciones con argumentos. [TODO]
@@ -54,34 +54,37 @@ try:
 
 * Crear nuestras propias excepciones: 
 ```
-import re
-
-class MyError(Exception):
-    def __init__(self, value_exception):
-        self.value_exception = value_exception
-        
-    def __str__(self):
-        return self.value_exception
-        
-class NotProtocolFoundError(MyError):
-    pass
+    import re
     
-class NotSiteFoundError(MyError):
-    pass
+    class MyError(Exception):
+        def __init__(self, value_exception):
+            self.value_exception = value_exception
+        
+        def __str__(self):
+            return self.value_exception
+        
+    class NotProtocolFoundError(MyError):
+        pass
+    
+    class NotSiteFoundError(MyError):
+        pass
 ```
 
 ## Manejar errores en tiempos de ejecución
 ```
->>> try:
-...     esto_falla()
-... except ZeroDivisionError as detail:
-...     print 'Manejando error en tiempo de ejecucion:', detail
+    try:
+        esto_falla()
+    except ZeroDivisionError as detail:
+        print 'Manejando error en tiempo de ejecucion:', detail
+```
 
 * Objetos con «métodos de limpieza»
-with open("miarchivo.txt") as f:
-    for linea in f:
-        print linea
 ```
+    with open("miarchivo.txt") as f:
+        for linea in f:
+            print linea
+```
+
 Cierra el archivo tanto si hubo un error como sino. Hay más objetos con estas funciones. TODO
 
 # Calendario.
@@ -94,12 +97,12 @@ Deuelve un 0-6 (Lunes-domingo)
 * Calendario del año indicado: `calendar.prcal(2012)`
 * Sumar x días a una fecha: 
 ```
-one_day = datetime.timedelta(days=1)
-day = day + one_day
+    one_day = datetime.timedelta(days=1)
+    day = day + one_day
 ```
 
 # Sobre assert en Unittest:
 
-* assertFalse(expr, msg=None) Test that expr is true (or false).
+* `assertFalse(expr, msg=None)` Test that expr is true (or false).
 
-* assertIs(expr, True): Comprobar el tipo de datos.
+* `assertIs(expr, True)`: Comprobar el tipo de datos.
