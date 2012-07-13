@@ -82,9 +82,9 @@ def is_working_range(range_start, range_end):
         raise InvalidDate
     
     if range_start == range_end:
-        return []
+        return {}
 
-    range_working = []
+    range_working = {}
     day = day_start
     finish_range = False
     one_day = datetime.timedelta(days=1)
@@ -92,7 +92,7 @@ def is_working_range(range_start, range_end):
     while (not finish_range):
         day_temp = day.strftime("%d/%m/%Y")
         is_working = is_working_date(day_temp)
-        range_working.append(is_working)
+        range_working[day_temp] = is_working
         if day == day_end:
             finish_range = True
         else:
