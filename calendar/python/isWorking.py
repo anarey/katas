@@ -5,7 +5,7 @@ import time
 
 class MyError(Exception):
     def __init__(self, value_error):
-        self.value = "Error: %s " % value_error
+        self.value_error = "Error: %s " % value_error
 
     def __str__(self):
         return self.value_error
