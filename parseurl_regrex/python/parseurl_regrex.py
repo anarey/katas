@@ -23,13 +23,23 @@ def get_protocol(url):
         raise NotProtocolFoundError("Prococol not found")
 
 def get_site(url):
-    pattern = re.compile("www\.[a-z0-9]+\.[a-z0-9]+/?")
-    if pattern.search(url):
-        site_search = pattern.search(url)
+    if re.search("://", url):
+        site_without_protocol = re.split("://",url)
+        site_search = site_without_protocol[1]
+    else:
+        site_search = url
+
+    if re.search("/", site_search):
+        site_search = re.split("/", site_search)
+        site_search = site_search[0]
+
+    pattern = re.compile("(\w\w\w\.)?[a-z0-9]+\.[a-z0-9]+")
+    if pattern.search(site_search):
+        site_search = pattern.search(site_search)
         site = site_search.group(0)
-        site = site.split("/")[0]
     else:
         raise NotSiteFoundError("Site not found")
+
     return site
 
 def get_path(url):
