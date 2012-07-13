@@ -39,12 +39,7 @@ def is_working_day(day):
 
 def is_working_date(day):
     
-    pattern = re.compile("\d{2}/\d{2}/\d{4}")
-
-# TODO Refactorizar con expresion regular solo introducir
-# 1-31 en dias y 1-12 en mes.
-# Este patron falla por los 05/06/2023
-#    pattern = re.compile("0?[1-31]/0?[1-12]/\d{4}")
+    pattern = re.compile("[0-3][0-9]/[0-1][0-9]/\d{4}")
 
     if not pattern.match(day): 
         if day == "":
