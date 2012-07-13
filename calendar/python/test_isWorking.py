@@ -59,19 +59,29 @@ class TestClassRangeDay(unittest.TestCase):
 
     def test_working_day_1(self):
         range_days = is_working_range("01/07/2012", "04/07/2012")
-        self.assertEqual(range_days, [False, True, True, True])
+        self.assertEqual(range_days, {'01/07/2012' : False,
+                                    '02/07/2012' : True,
+                                    '03/07/2012' : True,
+                                    '04/07/2012' : True})
 
     def test_working_day_2(self):
         range_days = is_working_range("02/07/2012", "05/07/2012")
-        self.assertNotEqual(range_days, [False, True, True, True])
+        self.assertNotEqual(range_days, {'01/07/2012' : False,
+                                    '02/07/2012' : True,
+                                    '03/07/2012' : True,
+                                    '04/07/2012' : True})
 
     def test_working_day_3(self):
         range_days = is_working_range("04/07/2012", "08/07/2012")
-        self.assertEqual(range_days, [True, True, True, False, False])
+        self.assertEqual(range_days, {'04/07/2012' : True,
+                                    '05/07/2012' : True,
+                                    '06/07/2012' : True,
+                                    '07/07/2012' : False,
+                                    '08/07/2012' : False})
 
     def test_working_day_0(self):
         range_days = is_working_range("04/07/2012", "04/07/2012")
-        self.assertEqual(range_days, [])
+        self.assertEqual(range_days,{})
 
     def test_working_bad_range(self):
         self.assertRaises(IncorrectRange, is_working_range, "05/07/2012", "03/07/2012")
