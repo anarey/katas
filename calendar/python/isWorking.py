@@ -3,33 +3,29 @@ import re
 import datetime
 import time
 
-class myError(Exception):
+class MyError(Exception):
     def __init__(self, value_error):
         self.value = "Error: %s " % value_error
 
     def __str__(self):
         return self.value_error
 
-class NotDayFoundError(myError):
-    pass
-class IncorrectDayError(myError):
+class NotDayFoundError(MyError):
     pass
 
-class NotDayFoundError(myError):
+class IncorrectDayError(MyError):
     pass
 
-class IncorrectDayError(myError):
+class NotDateFoundError(MyError):
     pass
 
-class NotDateFoundError(myError):
+class IncorrectDateError(MyError):
     pass
 
-class IncorrectDateError(myError):
+class IncorrectRangeError(MyError):
     pass
 
-class IncorrectRangeError(myError):
-    pass
-class InvalidDateError(myError):
+class InvalidDateError(MyError):
     pass
 
 def is_working_day(day):
@@ -84,7 +80,8 @@ def is_working_range(range_start, range_end):
         day_start = datetime.date(int(year_s), int(month_s), int(day_s))
         day_end = datetime.date(int(year_e), int(month_e), int(day_e))
 
-        if time.mktime(day_start.timetuple()) > time.mktime(day_end.timetuple()):
+        if (time.mktime(day_start.timetuple()) >
+                time.mktime(day_end.timetuple())):
             raise IncorrectRangeError("'range' is a incorrect range")
     except ValueError:
         raise InvalidDateError("'range' is a incorrect range")
