@@ -1,8 +1,8 @@
 import unittest
 
-from isWorking import is_working_day, is_working_date, is_working_range
+from is_working import is_working_day, is_working_date, is_working_range
 
-from isWorking import NotDayFoundError, IncorrectDayError, NotDateFoundError, IncorrectDateError, IncorrectRangeError, InvalidDateError
+from is_working import NotDayFoundError, IncorrectDayError, NotDateFoundError, IncorrectDateError, IncorrectRangeError, InvalidDateError
 
 class testClassCalendar(unittest.TestCase):
 
