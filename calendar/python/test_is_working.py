@@ -2,8 +2,6 @@ import unittest
 
 from is_working import is_working_day, is_working_date, is_working_range
 
-from is_working import NotDayFoundError, IncorrectDayError, NotDateFoundError, IncorrectDateError, IncorrectRangeError, InvalidDateError
-
 class testClassCalendar(unittest.TestCase):
 
     def test_monday_working(self):
@@ -23,10 +21,12 @@ class testClassCalendar(unittest.TestCase):
         self.assertFalse(is_working)
 
     def test_no_day_working(self):
-        self.assertRaises(NotDayFoundError, is_working_day, "")
+        is_working = is_working_day("")
+        self.assertEqual(is_working, "")
 
     def test_incorrect_day(self):
-        self.assertRaises(IncorrectDayError, is_working_day, "wrong_day")
+        is_working = is_working_day("wrong_day")
+        self.assertEqual(is_working, "")
 
 class TestClassCalendarDay(unittest.TestCase):
     
@@ -47,13 +47,16 @@ class TestClassCalendarDay(unittest.TestCase):
         self.assertFalse(is_working)
 
     def test_working_day_noday(self):
-        self.assertRaises(NotDateFoundError, is_working_date, "")
+        is_working = is_working_date("")
+        self.assertEqual(is_working, "")
 
     def test_working_incorrect_date(self):
-        self.assertRaises(IncorrectDateError, is_working_date, "sedrfse")
+        is_working = is_working_date("sedrfse")
+        self.assertEqual(is_working, "")
 
     def test_working_false_date(self):
-        self.assertRaises(IncorrectDateError, is_working_date, "34/07/2012")
+        is_working = is_working_date("34/07/2012")
+        self.assertEqual(is_working, "")
 
 class TestClassRangeDay(unittest.TestCase):
 
@@ -84,25 +87,33 @@ class TestClassRangeDay(unittest.TestCase):
         self.assertEqual(range_days,{})
 
     def test_working_bad_range(self):
-        self.assertRaises(IncorrectRangeError, is_working_range, "05/07/2012", "03/07/2012")
-  
+        is_working = is_working_range("05/07/2012", "03/07/2012")
+        self.assertEqual(is_working, {})
+        
     def test_working_bad_range2(self):
-        self.assertRaises(IncorrectRangeError, is_working_range, "06/07/2012", "04/07/2012")
+        is_working = is_working_range("06/07/2012", "04/07/2012")
+        self.assertEqual(is_working, {})
 
     def test_working_bad_range3(self):
-        self.assertRaises(IncorrectRangeError, is_working_range, "", "04/07/2012")
+        is_working = is_working_range("", "04/07/2012")
+        self.assertEqual(is_working, {})
 
     def test_working_bad_range4(self):
-        self.assertRaises(IncorrectRangeError, is_working_range, "06/05/2011", "")
+        is_working = is_working_range("06/07/2012","")
+        self.assertEqual(is_working, {})
 
     def test_working_bad_range5(self):
-        self.assertRaises(IncorrectRangeError, is_working_range, "", "")
+        is_working = is_working_range("", "")
+        self.assertEqual(is_working, {})
 
     def test_working_bad_range_date(self):
-        self.assertRaises(IncorrectRangeError, is_working_range, "232232", "05/05/2012")
+        is_working = is_working_range("232231", "05/05/2012")
+        self.assertEqual(is_working, {})
 
     def test_working_Invalid_date(self):
-        self.assertRaises(InvalidDateError, is_working_range, "12/03/1633", "04/07/2012")
+        is_working = is_working_range("12/03/1633", "04/07/2012")
+        self.assertEqual(is_working, {})
 
     def test_working_Invalid_date(self):
-        self.assertRaises(InvalidDateError, is_working_range, "34/03/1633", "04/07/2012")
+        is_working = is_working_range("34/03/1633", "04/07/2012")
+        self.assertEqual(is_working, {})
