@@ -8,10 +8,12 @@ class MyError(Exception):
         return self.value_exception
 
 class NotProtocolFoundError(MyError):
-    pass
+    def __init__(self, value_exception):
+        MyError.__init__(self, value_exception)
 
 class NotSiteFoundError(MyError):
-    pass
+    def __init__(self, value_exception):
+        MyError.__init__(self, value_exception)
 
 def get_protocol(url):
 
