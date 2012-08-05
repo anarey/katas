@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 
-import unittest
-import os
 import sys
+
+#HACK: This will use the unittest backport from Python 2.7 to be able of use:
+# unittest.TestLoader().discover()
+if sys.version_info[0] == 2 and sys.version_info[1] == 6:
+    import unittest2 as unittest
+else:
+    import unittest
+
+import os
 import fnmatch
 
 
