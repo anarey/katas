@@ -20,7 +20,7 @@ class Parseurl:
             site = site_search.group(0)
         return site
 
-    def split_slash(self, site):
+    def delete_slash(self, site):
 
         if re.search("/", site):
             site = re.split("/", site)
@@ -28,25 +28,34 @@ class Parseurl:
 
         return site 
 
-    def get_protocol(self):
-        protocol = ""
-        
+    def split_double_slash_dot(self):
+
+        split_url = ["",""]
         if re.search("://", self.url):
             protocol_search = re.split("://", self.url)
-            protocol = protocol_search[0] 
-        return protocol 
+            split_url[0] = protocol_search[0] 
+            split_url[1] = protocol_search[1]
+        else:
+            split_url[0] = ""
+            split_url[1] = self.url
+        return split_url
+
+
+    def get_protocol(self):
+
+        protocol = self.split_double_slash_dot()
+        
+        return protocol[0]
 
     def get_site(self):
-        site_search = self.url
         site = ""
-      
-        if re.search("://", self.url):
-            site_without_protocol = re.split("://", self.url)
-            site_search = site_without_protocol[1]
 
-        site_search = self.split_slash(site_search)
-
-        site = self.correct_site(site_search)
+        site_split = self.split_double_slash_dot()
+        site_search = site_split[1]
+        
+        if site_search != "":
+            site_without_slash = self.delete_slash(site_search)
+            site = self.correct_site(site_without_slash)
 
         return site
 
