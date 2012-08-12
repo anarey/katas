@@ -10,6 +10,24 @@ class Parseurl:
     def set_url(self, url):
         self.url = url
 
+    def correct_site(self, site_search):
+        site = ""
+
+        pattern = re.compile("(\w\w\w\.)?[a-z0-9]+\.[a-z0-9]+")
+
+        if pattern.search(site_search):
+            site_search = pattern.search(site_search)
+            site = site_search.group(0)
+        return site
+
+    def split_slash(self, site):
+
+        if re.search("/", site):
+            site = re.split("/", site)
+            site = site[0]
+
+        return site 
+
     def get_protocol(self):
         protocol = ""
         
@@ -21,35 +39,27 @@ class Parseurl:
     def get_site(self):
         site_search = self.url
         site = ""
-        
+      
         if re.search("://", self.url):
             site_without_protocol = re.split("://", self.url)
             site_search = site_without_protocol[1]
 
-        if re.search("/", site_search):
-            site_search = re.split("/", site_search)
-            site_search = site_search[0]
+        site_search = self.split_slash(site_search)
 
-        pattern = re.compile("(\w\w\w\.)?[a-z0-9]+\.[a-z0-9]+")
+        site = self.correct_site(site_search)
 
-        if pattern.search(site_search):
-            site_search = pattern.search(site_search)
-            site = site_search.group(0)
         return site
-        
+
     def get_path(self):
         path = ""
          
         site = self.get_site()
         
         if site != "":
-            pattern = re.compile("(\w\w\w\.)?[a-z0-9]+\.[a-z0-9]+")
-            if pattern.search(site):
-                if re.search(site, self.url):
-                    path_search = re.split(site, self.url)
-                    path = path_search[1]
-                    if re.search("^/", path):
-                        path = re.split("^/", path)[1]
+            path_search = re.split(site, self.url)
+            path = path_search[1]
+            if re.search("^/", path):
+                path = re.split("^/", path)[1]
         return path
 
     def parse_url(self):
