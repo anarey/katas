@@ -47,6 +47,50 @@ class Url:
         
         return protocol[0]
 
+    def set_protocol(self, new_protocol):
+    
+        new_url = ""
+
+        old_protocol, site, path = self.parse_url()
+        
+        if site != "":
+            new_url = self.set_url(new_protocol, site, path)
+        else:
+            self.url = new_url
+        return new_url
+
+    def set_url(self, protocol, site, path):
+        new_url = ""
+        if site != "":
+            if protocol != "":
+                new_url = protocol + "://"
+            new_url = new_url + site
+            if path != "":
+                new_url = new_url + "/" + path
+
+        self.url = new_url
+        return new_url
+    
+    def set_site(self, new_site):
+        new_url = ""
+
+        protocol, old_site, path = self.parse_url()
+        
+        if old_site != "":
+            new_url = self.set_url(protocol, new_site, path)
+        
+        return new_url
+
+    def set_path(self, new_path):
+        new_url = ""
+
+        protocol, site, old_path = self.parse_url()
+        
+        if site != "":
+            new_url = self.set_url(protocol, site, new_path)
+        
+        return new_url
+
     def get_site(self):
         site = ""
 

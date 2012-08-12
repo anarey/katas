@@ -27,7 +27,24 @@ class test_parse_regrex_protocol(unittest.TestCase):
         url_parse = "www.site.com"
         url = parseurl_class.Url(url_parse)
         self.assertEqual("", url.get_protocol())
-      
+
+    def test_put_protocol(self):
+        url_parse = "http://www.google.com"
+        url = parseurl_class.Url(url_parse)
+        url.set_protocol("ftp")
+        self.assertEqual("ftp", url.get_protocol())
+
+    def test_put_protocol_2(self):
+        url_parse = "www.google.com"
+        url = parseurl_class.Url(url_parse)
+        url.set_protocol("http")
+        self.assertEqual("http", url.get_protocol())
+
+    def test_put_protocol_3(self):
+        url_parse = "http://"
+        url = parseurl_class.Url(url_parse)
+        url.set_protocol("ftp")
+        self.assertEqual("", url.get_protocol())
 
 class test_parse_site(unittest.TestCase):
     def test_site(self):
@@ -82,6 +99,29 @@ class test_parse_site(unittest.TestCase):
         url = parseurl_class.Url(url_parse)
         self.assertEqual("twitter.com", url.get_site())
 
+    def test_put_site(self):
+        url_parse = "http://www.google.com"
+        url = parseurl_class.Url(url_parse)
+        url.set_site("www.twitter.com")
+        self.assertEqual("www.twitter.com", url.get_site())
+
+    def test_put_site2(self):
+        url_parse = "www.google.com"
+        url = parseurl_class.Url(url_parse)
+        url.set_site("www.twitter.com")
+        self.assertEqual("www.twitter.com", url.get_site())
+
+    def test_put_site3(self):
+        url_parse = "www.google.com/aboutme"
+        url = parseurl_class.Url(url_parse)
+        url.set_site("www.twitter.com")
+        self.assertEqual("www.twitter.com", url.get_site())
+
+    def test_put_site4(self):
+        url_parse = "www.google.com/aboutme/YO/ANA"
+        url = parseurl_class.Url(url_parse)
+        url.set_site("www.twitter.com")
+        self.assertEqual("www.twitter.com", url.get_site())
 
 class test_parse_path(unittest.TestCase):
     def test_path(self):
@@ -118,6 +158,24 @@ class test_parse_path(unittest.TestCase):
         url_parse = "anarey.info/info/aboutme"
         url = parseurl_class.Url(url_parse)
         self.assertEqual("info/aboutme", url.get_path())
+
+    def test_set_path_aboutme(self):
+        url_parse = "http://www.anarey.info"
+        url = parseurl_class.Url(url_parse)
+        url.set_path("aboutme")
+        self.assertEqual("aboutme", url.get_path())
+
+    def test_set_path_aboutme(self):
+        url_parse = "www.anarey.info"
+        url = parseurl_class.Url(url_parse)
+        url.set_path("aboutme/aa")
+        self.assertEqual("aboutme/aa", url.get_path())
+    
+    def test_set_path_aboutme(self):
+        url_parse = "http://"
+        url = parseurl_class.Url(url_parse)
+        url.set_path("aboutme/aa")
+        self.assertEqual("", url.get_path())
 
 class test_parse_url(unittest.TestCase):
     def test_return_value(self):
